@@ -54,12 +54,12 @@ summary h6 {
 
 h1 {
   font-size: 2rem;
-  line-height: 1.1;
+  line-height: 3rem;
 }
 
 h2 {
   font-size: 1.5rem;
-  line-height: 1.1;
+  line-height: 2rem;
 }
 
 h3 {
@@ -89,7 +89,6 @@ h5 {
 }
 
 .text-layout {
-  h1,
   h2,
   h3,
   h4,
@@ -137,13 +136,16 @@ h5 {
 }
 
 .header-layout {
-  .name {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  > * + * {
+    margin-top: 1rem;
   }
 
-  a {
-    text-decoration-style: wavy;
+  .name {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
   }
 }
 

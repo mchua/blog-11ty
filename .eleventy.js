@@ -1,24 +1,18 @@
 const pluginSass = require("eleventy-plugin-sass");
-
-// Don't need a lib for this, y'all.
-const leftpad = str => `00${str}`.slice(-2);
+const dateFilter = require("./src/filters/date-filter");
+const permalinkFilter = require("./src/filters/permalink-filter");
 
 module.exports = function(eleventyConfig) {
   // Eleventy setup
   eleventyConfig.setDataDeepMerge(true);
 
   // Filters
-  eleventyConfig.addFilter("post_permalink", page => {
-    const year = page.date.getFullYear();
-    const month = leftpad(page.date.getMonth() + 1);
-    const day = leftpad(page.date.getDate());
-    return `${year}/${month}/${day}/${page.fileSlug}/`;
-  });
+  eleventyConfig.addFilter("post_date", dateFilter);
+  eleventyConfig.addFilter("post_permalink", permalinkFilter);
 
   // Layouts
   eleventyConfig.addLayoutAlias("default", "_layouts/default.njk");
   eleventyConfig.addLayoutAlias("post", "_layouts/post.njk");
-  eleventyConfig.addLayoutAlias("home", "_layouts/home.njk");
 
   // Collections
   eleventyConfig.addCollection("posts", collection => {
