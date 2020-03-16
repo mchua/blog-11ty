@@ -1,6 +1,17 @@
 const pluginSass = require("eleventy-plugin-sass");
 
+// Don't need a lib for this, y'all.</snark>
+const leftpad = str => `00${str}`.slice(-2);
+
 module.exports = function(eleventyConfig) {
+  // Filters
+  eleventyConfig.addFilter("post_permalink", page => {
+    const year = page.date.getFullYear();
+    const month = leftpad(page.date.getMonth() + 1);
+    const day = leftpad(page.date.getDate());
+    return `${year}/${month}/${day}/${page.fileSlug}/`;
+  });
+
   // Layouts
   eleventyConfig.addLayoutAlias("default", "_layouts/default.njk");
   eleventyConfig.addLayoutAlias("post", "_layouts/post.njk");
@@ -8,13 +19,13 @@ module.exports = function(eleventyConfig) {
 
   // Collections
   eleventyConfig.addCollection("posts", collection => {
-    return collection.getFilteredByGlob(["_posts/*.md", "_posts/*.html"]);
+    return collection.getFilteredByGlob(["src/blog/*.md", "src/blog/*.html"]);
   });
 
   eleventyConfig.addCollection("postsByYear", collection => {
     const posts = collection.getFilteredByGlob([
-      "_posts/*.md",
-      "_posts/*.html"
+      "src/blog/*.md",
+      "src/blog/*.html"
     ]);
 
     const postMap = {};
@@ -37,12 +48,12 @@ module.exports = function(eleventyConfig) {
 
   // Plugins
   eleventyConfig.addPlugin(pluginSass, {
-    watch: ["css/**/*.scss", "!node_modules/**"]
+    watch: ["src/css/**/*.scss", "!node_modules/**"]
   });
 
   return {
     dir: {
-      input: "./",
+      input: "./src",
       output: "./_site"
     }
   };
