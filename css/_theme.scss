@@ -1,0 +1,158 @@
+$background-color: rgb(255, 217, 0);
+$link-color: rgb(25, 100, 240);
+$text-color: #222;
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Oxygen", sans-serif;
+  font-size: 1.125em;
+  line-height: 1.5;
+  background-color: $background-color;
+  color: $text-color;
+  touch-action: manipulation;
+}
+
+p {
+  line-height: inherit;
+}
+
+.container {
+  box-sizing: content-box;
+  padding: 20px 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", Georgia, serif;
+}
+
+summary {
+  cursor: pointer;
+}
+
+summary h2,
+summary h3,
+summary h4,
+summary h5,
+summary h6 {
+  display: inline-block;
+}
+
+// Typography
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+.sr-only:not(:focus):not(:active) {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.text-layout {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li,
+  p {
+    margin-bottom: 1rem;
+  }
+
+  ul,
+  ol {
+    padding-left: 2rem;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: numeric;
+  }
+
+  a {
+    color: $link-color;
+  }
+}
+
+.site-layout {
+  display: flex;
+  flex-wrap: wrap;
+
+  > :first-child {
+    flex-basis: 20ch;
+  }
+
+  > :last-child {
+    flex-basis: 60ch;
+    margin-right: auto;
+  }
+}
+
+.header-layout {
+  .name {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    text-decoration-style: wavy;
+  }
+}
+
+.eyebrow {
+  font-family: "Anonymous Pro", Courier, monospace;
+  font-size: 0.875rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: $link-color;
+
+  &:hover {
+    text-decoration-thickness: 3px;
+    color: $link-color;
+  }
+}
