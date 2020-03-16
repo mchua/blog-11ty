@@ -1,6 +1,8 @@
-$background-color: rgb(255, 217, 0);
-$link-color: rgb(25, 100, 240);
-$text-color: #222;
+:root {
+  --background-color: rgb(255, 217, 0);
+  --link-color: rgb(25, 100, 240);
+  --text-color: #222;
+}
 
 html,
 body {
@@ -11,8 +13,8 @@ body {
   font-family: "Oxygen", sans-serif;
   font-size: 1.125em;
   line-height: 1.5;
-  background-color: $background-color;
-  color: $text-color;
+  background-color: var(--background-color);
+  color: var(--text-color);
   touch-action: manipulation;
 }
 
@@ -112,7 +114,11 @@ h5 {
   }
 
   a {
-    color: $link-color;
+    color: var(--link-color);
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -149,10 +155,10 @@ h5 {
 a {
   color: inherit;
   text-decoration: underline;
-  text-decoration-color: $link-color;
+  text-decoration-color: var(--link-color);
 
   &:hover {
     text-decoration-thickness: 3px;
-    color: $link-color;
+    color: var(--link-color);
   }
 }

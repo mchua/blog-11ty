@@ -1,4 +1,4 @@
 {
   "layout": "post",
-  "permalink": "blog/{{ page | post_permalink }}/{{ page.fileSlug }}/"
+  "permalink": "blog/{{ page | post_permalink }}/"
 }
