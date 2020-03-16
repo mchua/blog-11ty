@@ -1,9 +1,12 @@
 const pluginSass = require("eleventy-plugin-sass");
 
-// Don't need a lib for this, y'all.</snark>
+// Don't need a lib for this, y'all.
 const leftpad = str => `00${str}`.slice(-2);
 
 module.exports = function(eleventyConfig) {
+  // Eleventy setup
+  eleventyConfig.setDataDeepMerge(true);
+
   // Filters
   eleventyConfig.addFilter("post_permalink", page => {
     const year = page.date.getFullYear();
