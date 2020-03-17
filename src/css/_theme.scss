@@ -1,6 +1,7 @@
 :root {
-  --background-color: rgb(255, 217, 0);
-  --link-color: rgb(25, 100, 240);
+  --thing: #ffe11b;
+  --background-color: rgb(255, 208, 0);
+  --link-color: rgb(19, 82, 199);
   --text-color: #222;
 }
 
@@ -22,22 +23,6 @@ p {
   line-height: inherit;
 }
 
-.container {
-  box-sizing: content-box;
-  padding: 20px 40px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Roboto Slab", Georgia, serif;
-}
-
 summary {
   cursor: pointer;
 }
@@ -51,6 +36,23 @@ summary h6 {
 }
 
 // Typography
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", Georgia, serif;
+}
 
 h1 {
   font-size: 2rem;
@@ -74,21 +76,21 @@ h5 {
   font-size: 1.1rem;
 }
 
-.sr-only:not(:focus):not(:active) {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important;
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--link-color);
+
+  &:hover {
+    text-decoration-thickness: 3px;
+    color: var(--link-color);
+  }
 }
 
 .text-layout {
+  max-width: 60ch;
+
+  h1,
   h2,
   h3,
   h4,
@@ -109,7 +111,7 @@ h5 {
   }
 
   ol {
-    list-style-type: numeric;
+    list-style-type: decimal;
   }
 
   a {
@@ -121,6 +123,7 @@ h5 {
   }
 }
 
+// Layouts
 .site-layout {
   display: flex;
   flex-wrap: wrap;
@@ -135,18 +138,66 @@ h5 {
   }
 }
 
+.switcher-layout {
+  --measure: 60ch;
+  --gap: 1rem;
+}
+
+.switcher-layout > * {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc((var(--gap) / 2) * -1);
+}
+
+.switcher-layout > * > * {
+  flex-grow: 1;
+  flex-basis: calc((var(--measure) - (100% - var(--gap))) * 99999);
+  margin: calc(var(--gap) / 2);
+}
+
 .header-layout {
+  margin-bottom: 3rem;
+
   > * + * {
     margin-top: 1rem;
   }
 
   .name {
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
   .description {
     font-size: 0.875rem;
+    max-width: 20ch;
   }
+
+  a {
+    padding: 4px 8px;
+    margin-left: -8px;
+  }
+}
+
+// Utilities
+.container {
+  box-sizing: content-box;
+  padding: 20px 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sr-only:not(:focus):not(:active) {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
 }
 
 .eyebrow {
@@ -154,13 +205,60 @@ h5 {
   font-size: 0.875rem;
 }
 
-a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--link-color);
+.heading {
+  h1 {
+    margin-bottom: 0;
+  }
 
-  &:hover {
-    text-decoration-thickness: 3px;
-    color: var(--link-color);
+  margin-bottom: 3rem;
+}
+
+// Articles (index) styles
+.articles {
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    margin-bottom: 2.5rem;
+  }
+
+  li > :first-child {
+    margin-bottom: 0;
+  }
+}
+
+// Pagination
+.pagination {
+  ol {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "Anonymous Pro", Courier, monospace;
+  }
+
+  li {
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+    padding: 4px 8px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    margin: -4px -8px;
+    padding: 4px 8px;
+    color: var(--text-color);
+
+    &:focus,
+    &:hover,
+    &[aria-current] {
+      background-color: var(--text-color);
+      color: var(--background-color);
+      border-radius: 2px;
+    }
   }
 }

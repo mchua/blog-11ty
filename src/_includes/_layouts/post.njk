@@ -1,11 +1,12 @@
 ---
-layout: default
+layout: _layouts/default.njk
 ---
 
 <div class="text-layout">
-  <h1>{{ title }}</h1>
-
-  <p class="eyebrow">{{ date | post_date }}</p>
+  <div class="heading">
+    <h1>{{ title }}</h1>
+    <p class="eyebrow">{{ date | post_date }}</p>
+  </div>
 
   {{ content | safe }}
 </div>

@@ -11,7 +11,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("post_permalink", permalinkFilter);
 
   // Layouts
-  eleventyConfig.addLayoutAlias("default", "_layouts/default.njk");
+  // Support old post frontmatter without having to do a giant find/replace
   eleventyConfig.addLayoutAlias("post", "_layouts/post.njk");
 
   // Collections

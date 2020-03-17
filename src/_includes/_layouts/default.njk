@@ -3,21 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }}</title>
+    <title>
+      {%- if title -%}
+        {{ title }} | Mel Chua
+      {%- else -%}
+        Mel Chua
+      {%- endif -%}
+    </title>
     <link rel="stylesheet" href="/main.css" />
   </head>
   <body>
     <a class="sr-only" href="#main">Skip navigation</a>
 
-    <div class="container">
-      <div class="site-layout">
-        <header>
+    <div class="container switcher-layout">
+      <div>
+        <header style="flex-grow: 4">
           <div class="header-layout">
             <p class="name">Mel Chua</p>
-
-            <p class="description">
-              Hacker. Writer. Researcher. Teacher. Human jumper cable.
-            </p>
 
             <nav aria-labelledby="site-nav-header">
               <div id="site-nav-header" class="sr-only">Site navigation</div>
@@ -27,11 +29,17 @@
                 <li><a href="/cv">CV</a></li>
               </ul>
             </nav>
+
+            <p class="description">
+              Hacker. Writer. Researcher. Teacher. Human jumper cable.
+            </p>
           </div>
         </header>
 
-        <main id="main" class="text-layout">
-          {{ content | safe }}
+        <main id="main" style="flex-grow: 8">
+          <div class="text-layout">
+            {{ content | safe }}
+          </div>
         </main>
       </div>
     </div>

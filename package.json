@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "dev": "rm -rf _site/ && npm install && npx @11ty/eleventy --serve",
+    "build": "npm install && npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "",
