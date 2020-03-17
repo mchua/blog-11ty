@@ -82,7 +82,6 @@ a {
   text-decoration-color: var(--link-color);
 
   &:hover {
-    text-decoration-thickness: 3px;
     color: var(--link-color);
   }
 }
@@ -124,20 +123,6 @@ a {
 }
 
 // Layouts
-.site-layout {
-  display: flex;
-  flex-wrap: wrap;
-
-  > :first-child {
-    flex-basis: 20ch;
-  }
-
-  > :last-child {
-    flex-basis: 60ch;
-    margin-right: auto;
-  }
-}
-
 .switcher-layout {
   --measure: 60ch;
   --gap: 1rem;
@@ -165,6 +150,19 @@ a {
   .name {
     font-size: 2rem;
     margin-bottom: 1rem;
+    border-right: 1px solid #22222222;
+
+    span {
+      padding-right: 1rem;
+      background-color: var(--background-color);
+      z-index: 1;
+    }
+
+    + * {
+      border-top: 1px solid #22222222;
+      padding-top: 2.5rem;
+      margin-top: -2.5rem;
+    }
   }
 
   .description {
@@ -231,6 +229,9 @@ a {
 
 // Pagination
 .pagination {
+  font-size: 0.875rem;
+  margin-left: -8px;
+
   ol {
     list-style: none;
     padding-left: 0;
@@ -247,11 +248,13 @@ a {
 
   a {
     color: inherit;
-    text-decoration: none;
     font-weight: 700;
     margin: -4px -8px;
     padding: 4px 8px;
-    color: var(--text-color);
+
+    &:not([aria-current]) {
+      color: var(--text-color);
+    }
 
     &:focus,
     &:hover,
@@ -259,6 +262,12 @@ a {
       background-color: var(--text-color);
       color: var(--background-color);
       border-radius: 2px;
+    }
+
+    &:focus,
+    &:hover,
+    &:not([aria-current]) {
+      text-decoration: underline;
     }
   }
 }
