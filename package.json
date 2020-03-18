@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "eleventy-plugin-sass": "^1.0.0",
+    "open-editor": "^2.0.1",
     "slugify": "^1.4.0"
   }
 }
