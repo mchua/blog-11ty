@@ -15,8 +15,8 @@ permalink: "/{% if pagination.pageNumber > 0 %}blog/{{ pagination.pageNumber + 1
   <ul>
     {%- for item in pagination.items -%}
     <li>
-      <p class="eyebrow">{{ item.date | post_date }}</p>
       <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+      <time datetime="{{ item.date | w3c_date }}">{{ item.date | post_date }}</time>
     </li>
     {%- endfor -%}
   </ul>

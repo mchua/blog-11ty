@@ -2,6 +2,7 @@ const pluginSass = require("eleventy-plugin-sass");
 const dateFilter = require("./src/filters/date-filter");
 const permalinkFilter = require("./src/filters/permalink-filter");
 const paginationFilter = require("./src/filters/pagination-filter");
+const w3cDateFilter = require("./src/filters/w3c-date-filter");
 
 module.exports = function(eleventyConfig) {
   // Eleventy setup
@@ -11,6 +12,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("post_date", dateFilter);
   eleventyConfig.addFilter("post_permalink", permalinkFilter);
   eleventyConfig.addFilter("pagination_pages", paginationFilter);
+  eleventyConfig.addFilter("w3c_date", w3cDateFilter);
 
   // Layouts
   // Support old post frontmatter without having to do a giant find/replace

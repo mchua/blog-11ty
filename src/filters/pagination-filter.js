@@ -9,7 +9,7 @@ const PAGE_MARGINS = 1;
  * Shape of `pagination` object here:
  * https://www.11ty.dev/docs/pagination/#paging-an-array
  */
-module.exports = pagination => {
+module.exports = function paginationFilter(pagination) {
   const numPages = pagination.pages.length;
   const currentPage = pagination.pageNumber;
   const pageNumbers = [];
