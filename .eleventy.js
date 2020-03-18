@@ -1,3 +1,4 @@
+const fs = require("fs");
 const pluginSass = require("eleventy-plugin-sass");
 const dateFilter = require("./src/filters/date-filter");
 const permalinkFilter = require("./src/filters/permalink-filter");
@@ -67,7 +68,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: (err, browserSync) => {
-        const notFoundPage = fs.readFileSync("dist/404.html");
+        const notFoundPage = fs.readFileSync("_site/404.html");
 
         browserSync.addMiddleware("*", (req, res) => {
           // Provides the 404 content without redirect.
