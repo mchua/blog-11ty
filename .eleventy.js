@@ -63,6 +63,21 @@ module.exports = function(eleventyConfig) {
   const markdownLib = markdownIt(options).use(markdownItBlockEmbed);
   eleventyConfig.setLibrary("md", markdownLib);
 
+  // 404
+  eleventyConfig.setBrowserSyncConfig({
+    callbacks: {
+      ready: (err, browserSync) => {
+        const notFoundPage = fs.readFileSync("dist/404.html");
+
+        browserSync.addMiddleware("*", (req, res) => {
+          // Provides the 404 content without redirect.
+          res.write(notFoundPage);
+          res.end();
+        });
+      }
+    }
+  });
+
   return {
     dir: {
       input: "./src",
