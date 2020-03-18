@@ -17,6 +17,8 @@ This should install all the packages for you (in `node_modules/`). Installing pa
 ## Common commands
 
 - `npm run dev`: Starts the 11ty development server. Use this to preview your whole site before pushing to production. It hot-reloads!
+- `npm run write`: Opens a prompt asking you for your post's title. You don't have to think of one right away, but the title becomes part of the post's metadata and gets translated into the post's filename. The post's filename then becomes the URL slug of the post. Of course, you can always change the filename and title later.
+- `npm run deploy`: Does a git add, commit, and push.
 
 ## Gotchas
 
