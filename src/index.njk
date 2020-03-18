@@ -32,8 +32,12 @@ permalink: "/{% if pagination.pageNumber > 0 %}blog/{{ pagination.pageNumber + 1
       Previous
     {%- endif -%}
     </li>
-    {%- for pageEntry in pagination.pages -%}
-    <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url === pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}><span class="sr-only">Page </span>{{ loop.index }}</a></li>
+    {%- for pageIndex in pagination | pagination_pages -%}
+    {%- if pageIndex === -1 -%}
+    <li>...</li>
+    {%- else -%}
+    <li><a href="{{ pagination.hrefs[ pageIndex ] }}"{% if page.url === pagination.hrefs[ pageIndex ] %} aria-current="page"{% endif %}><span class="sr-only">Page </span>{{ pageIndex + 1 }}</a></li>
+    {%- endif -%}
     {%- endfor -%}
     <li>
     {%- if pagination.href.next -%}
