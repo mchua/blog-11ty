@@ -50,6 +50,17 @@ module.exports = function(eleventyConfig) {
     watch: ["src/css/**/*.scss", "!node_modules/**"]
   });
 
+  // Markdown engine
+  const markdownIt = require("markdown-it");
+  // For embedding YouTube/Vimeo etc.
+  // https://www.npmjs.com/package/markdown-it-block-embed
+  const markdownItBlockEmbed = require("markdown-it-block-embed");
+  const options = {
+    html: true
+  };
+  const markdownLib = markdownIt(options).use(markdownItBlockEmbed);
+  eleventyConfig.setLibrary("md", markdownLib);
+
   return {
     dir: {
       input: "./src",
