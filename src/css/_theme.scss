@@ -122,6 +122,17 @@ a {
   }
 }
 
+.skip-nav {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 1rem;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  border-radius: 2px;
+  text-decoration: none;
+}
+
 // Layouts
 .switcher-layout {
   --measure: 60ch;
