@@ -191,6 +191,10 @@ a {
       color: var(--background-color);
       border-radius: 2px;
       text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
