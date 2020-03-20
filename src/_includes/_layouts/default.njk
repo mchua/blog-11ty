@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      {%- if title -%}
-        {{ title }} | Mel Chua
-      {%- else -%}
-        Mel Chua
-      {%- endif -%}
+      {% if title %}
+        {{ title }} | {{ site.name }}
+      {% else %}
+        {{ site.name }}
+      {% endif %}
     </title>
     <link rel="stylesheet" href="/main.css" />
   </head>
@@ -19,14 +19,14 @@
       <div>
         <header style="flex-grow: 4">
           <div class="header-layout">
-            <div class="name"><span>Mel Chua</span></div>
+            <div class="name"><span>{{ site.name }}</span></div>
 
             <nav aria-labelledby="site-nav-header">
               <div id="site-nav-header" class="sr-only">Site navigation</div>
               <ul class="eyebrow">
-                <li><a href="/">BLOG</a></li>
-                <li><a href="/about">ABOUT</a></li>
-                <li><a href="/cv">CV</a></li>
+              {% for link in site.navigation %}
+                <li><a href="{{ link.url }}"{% if page.url === link.url %} aria-current="page"{% endif %}>{{ link.label }}</a></li>
+              {% endfor %}
               </ul>
             </nav>
 

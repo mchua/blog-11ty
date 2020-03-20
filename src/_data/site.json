@@ -1,0 +1,17 @@
+{
+  "name": "Mel Chua",
+  "navigation": [
+    {
+      "url": "/",
+      "label": "BLOG"
+    },
+    {
+      "url": "/about/",
+      "label": "ABOUT"
+    },
+    {
+      "url": "/cv/",
+      "label": "CV"
+    }
+  ]
+}
