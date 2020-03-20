@@ -152,10 +152,11 @@ a {
     margin-bottom: 1rem;
     border-right: 1px solid #22222222;
 
-    span {
+    a {
       padding-right: 1rem;
       background-color: var(--background-color);
       z-index: 1;
+      text-decoration: none;
     }
 
     + * {
@@ -173,6 +174,13 @@ a {
   a {
     padding: 4px 8px;
     margin-left: -8px;
+
+    &[aria-current] {
+      background-color: var(--text-color);
+      color: var(--background-color);
+      border-radius: 2px;
+      text-decoration: none;
+    }
   }
 }
 
