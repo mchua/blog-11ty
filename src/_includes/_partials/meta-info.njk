@@ -1,0 +1,18 @@
+{% if title %}
+  {% set pageTitle = title + ' - ' + site.name %}
+{% else %}
+  {% set pageTitle = site.name %}
+{% endif %}
+{% set currentUrl = site.url + page.url %}
+
+<title>{{ pageTitle }}</title>
+<link rel="canonical" href="{{ currentUrl }}" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="{{ site.name }}" />
+<meta property="og:title" content="{{ pageTitle }}" />
+<meta property="og:url" content="{{ currentUrl }}" />
+
+{% if site.twitter %}
+<meta name="twitter:creator" content="{{ site.twitter }}" />
+{% endif %}
