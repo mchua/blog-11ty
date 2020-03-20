@@ -1,8 +1,15 @@
 :root {
-  --thing: #ffe11b;
   --background-color: rgb(255, 208, 0);
   --link-color: rgb(19, 82, 199);
   --text-color: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #222;
+    --link-color: rgb(101, 155, 255);
+    --text-color: rgb(255, 208, 0);
+  }
 }
 
 html,
