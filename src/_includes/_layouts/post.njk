@@ -5,7 +5,7 @@ layout: _layouts/default.njk
 <div class="text-layout">
   <div class="heading">
     <h1>{{ title }}</h1>
-    <time datetime="{{ item.date | w3c_date }}">{{ item.date | post_date }}</time>
+    <time datetime="{{ page.date | w3c_date }}">{{ page.date | post_date }}</time>
   </div>
 
   {{ content | safe }}
