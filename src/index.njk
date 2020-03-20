@@ -22,29 +22,4 @@ permalink: "/{% if pagination.pageNumber > 0 %}blog/{{ pagination.pageNumber + 1
   </ul>
 </div>
 
-<nav class="pagination" aria-labelledby="pagination">
-  <h2 id="pagination" class="sr-only">Pagination</h2>
-  <ol>
-    <li>
-    {%- if pagination.href.previous -%}
-      <a href="{{ pagination.href.previous }}">Previous</a>
-    {%- else -%}
-      Previous
-    {%- endif -%}
-    </li>
-    {%- for pageIndex in pagination | pagination_pages -%}
-    {%- if pageIndex === -1 -%}
-    <li>...</li>
-    {%- else -%}
-    <li><a href="{{ pagination.hrefs[ pageIndex ] }}"{% if page.url === pagination.hrefs[ pageIndex ] %} aria-current="page"{% endif %}><span class="sr-only">Page </span>{{ pageIndex + 1 }}</a></li>
-    {%- endif -%}
-    {%- endfor -%}
-    <li>
-    {%- if pagination.href.next -%}
-      <a href="{{ pagination.href.next }}">Next</a>
-    {%- else -%}
-      Next
-    {%- endif -%}
-    </li>
-  </ol>
-</nav>
+{% include "_partials/pagination.njk" %}
